@@ -5,7 +5,8 @@ name: status
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    # Nicht zur vollen Stunde: Dann verschiebt oder verwirft GitHub geplante Läufe am häufigsten.
+    - cron: "3-58/5 * * * *"
   push:
     branches: [main]
   workflow_dispatch:
