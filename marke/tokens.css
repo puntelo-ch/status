@@ -1,0 +1,67 @@
+/* Puntelo Design-Werte · Route A «Gewählt» · Ultramarin und Aprikose
+   Eine Datei für Website, Admin und Widget. Stand 21.10.2026.
+   Im Widget überschreibt der Betrieb --pt-haupt, --pt-auf-haupt und bei Bedarf die Schriften. */
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./schrift/hanken-grotesk-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./schrift/hanken-grotesk-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./schrift/hanken-grotesk-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./schrift/hanken-grotesk-latin-700-normal.woff2") format("woff2");
+}
+
+:root {
+  /* Rollen für das Widget */
+  --pt-haupt: #2d3e9e; /* Ultramarin · Weiss darauf 9.2 : 1 */
+  --pt-auf-haupt: #ffffff;
+  --pt-grund: #ffffff;
+  --pt-flaeche: #f4f5fb; /* Nebel */
+  --pt-text: #141a44; /* Nachtblau · 16.7 : 1 auf Weiss, 15.3 : 1 auf Nebel */
+  --pt-nebentext: #545a7e; /* Dämmerblau · 6.7 : 1 auf Weiss, 6.1 : 1 auf Nebel */
+  --pt-rand: #dddfee;
+  --pt-fehler: #b42318; /* 6.6 : 1 auf Weiss */
+  --pt-schrift-titel: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pt-schrift-titel-gewicht: 600; /* ergänzt bei der Übernahme (Paket 0.10) */
+  --pt-schrift-text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pt-rundung-klein: 10px; /* Knöpfe, Felder, Zeiten */
+  --pt-rundung-gross: 16px; /* Karten, Widget */
+
+  /* Weitere Markenwerte (Website, Admin) */
+  --pt-akzent: #f2a057; /* Aprikose · nur Fläche, nie Schrift */
+  --pt-text-weich: #2c3260; /* Fliesstext auf Website · 12.1 : 1 */
+  --pt-rand-stark: #c9cce3; /* Rand von Sekundärknöpfen und Feldern */
+  --pt-erfolg: #1f7a4d; /* 5.3 : 1 */
+  --pt-hinweis: #8a5a00; /* 5.9 : 1 */
+
+  /* Farben der Personen im Kalender (Rückmeldung Davide, 23.10.2026): nur Streifen und zarte
+     Fläche, nie Schrift; kein Grün und kein Rot, die gehören zu «erschienen» und «nicht erschienen». */
+  --pt-person-aprikose: #f2a057;
+  --pt-person-mais: #e3c04b;
+  --pt-person-rosa: #e48bb0;
+  --pt-person-flieder: #a58bd6;
+  --pt-person-ultramarin: #2d3e9e;
+  --pt-person-himmel: #5aa3d9;
+  --pt-person-petrol: #2a8696;
+  --pt-person-schiefer: #7c849e;
+}

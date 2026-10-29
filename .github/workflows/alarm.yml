@@ -1,0 +1,35 @@
+# Alarm der Stufe 1 mit Quittung und Eskalation (ADR-0027, docs/runbooks/bereitschaft.md in
+# puntelo-ch/puntelo). Healthchecks.io (Integration «eskalation») oder probealarm.sh schicken ein
+# repository_dispatch «alarm» mit {check, status}. Ein «up» bricht den laufenden «down» desselben
+# Checks ab (concurrency); das Klingeln über ntfy hört damit auf.
+name: alarm
+
+on:
+  repository_dispatch:
+    types: [alarm]
+
+permissions:
+  contents: read
+
+concurrency:
+  # Nur der Name aus der Nutzlast, geprüft in alarm.mjs; hier nur als Gruppenname, nie in run:.
+  group: alarm-${{ github.event.client_payload.check }}
+  cancel-in-progress: true
+
+jobs:
+  alarm:
+    runs-on: ubuntu-latest
+    # Frist 15 Minuten plus 2 Stunden Wiederholung.
+    timeout-minutes: 140
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - name: Alarm
+        env:
+          NTFY_TOPIC_ALARM: ${{ secrets.NTFY_TOPIC_ALARM }}
+          NTFY_TOPIC_ESCALATION: ${{ secrets.NTFY_TOPIC_ESCALATION }}
+        run: node alarm.mjs

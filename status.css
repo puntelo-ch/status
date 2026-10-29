@@ -1,0 +1,122 @@
+/* Statusseite (ADR-0027). Farben und Schrift aus marke/tokens.css (Kopie aus packages/brand). */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--pt-flaeche);
+  color: var(--pt-text);
+  font-family: var(--pt-schrift-text);
+  line-height: 1.5;
+}
+header,
+main,
+footer {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+header {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--pt-schrift-titel);
+  font-weight: var(--pt-schrift-titel-gewicht);
+}
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.125rem;
+  margin-top: 2rem;
+}
+h3 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+.gesamt {
+  border-radius: var(--pt-rundung-gross);
+  padding: 1.25rem 1.5rem;
+  color: var(--pt-auf-haupt);
+}
+.gesamt-betrieb {
+  background: var(--pt-erfolg);
+}
+.gesamt-wartung {
+  background: var(--pt-haupt);
+}
+.gesamt-stoerung {
+  background: var(--pt-fehler);
+}
+.gesamt-unbekannt {
+  background: var(--pt-nebentext);
+}
+.bereiche {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  background: var(--pt-grund);
+  border: 1px solid var(--pt-rand);
+  border-radius: var(--pt-rundung-gross);
+}
+.bereiche li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  border-top: 1px solid var(--pt-rand);
+}
+.bereiche li:first-child {
+  border-top: 0;
+}
+.zustand {
+  font-weight: 600;
+}
+.bereich-betrieb .zustand {
+  color: var(--pt-erfolg);
+}
+.bereich-stoerung .zustand {
+  color: var(--pt-fehler);
+}
+.bereich-unbekannt .zustand {
+  color: var(--pt-nebentext);
+}
+.meldung {
+  background: var(--pt-grund);
+  border: 1px solid var(--pt-rand);
+  border-left: 4px solid var(--pt-rand-stark);
+  border-radius: var(--pt-rundung-klein);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.meldung-aktiv {
+  border-left-color: var(--pt-fehler);
+}
+.meldung-geplant {
+  border-left-color: var(--pt-haupt);
+}
+.meldung p {
+  margin: 0.25rem 0 0;
+}
+.phase {
+  font-weight: 500;
+  color: var(--pt-nebentext);
+  font-size: 0.875rem;
+}
+.zeit,
+.leer,
+footer {
+  color: var(--pt-nebentext);
+  font-size: 0.875rem;
+}
+footer {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+a {
+  color: var(--pt-haupt);
+}
