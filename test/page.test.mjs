@@ -235,6 +235,11 @@ describe("renderPage", () => {
     assert.doesNotMatch(html, /src="https?:/);
     assert.doesNotMatch(html, /<link[^>]+href="https?:/);
   });
+  test("links the website at its main address www.puntelo.ch (ADR-0029)", () => {
+    assert.match(html, /Website \(www\.puntelo\.ch\)/);
+    assert.match(html, /<a href="https:\/\/www\.puntelo\.ch">www\.puntelo\.ch<\/a>/);
+    assert.doesNotMatch(html, /href="https:\/\/puntelo\.ch/);
+  });
   test("has a strict content security policy", () => {
     assert.match(html, /http-equiv="Content-Security-Policy"/);
     assert.match(html, /default-src 'none'/);

@@ -25,6 +25,7 @@ h2,
 h3 {
   font-family: var(--pt-schrift-titel);
   font-weight: var(--pt-schrift-titel-gewicht);
+  font-stretch: var(--pt-schrift-titel-breite);
 }
 h1 {
   margin: 0;

@@ -1,61 +1,68 @@
-/* Puntelo Design-Werte · Route A «Gewählt» · Ultramarin und Aprikose
-   Eine Datei für Website, Admin und Widget. Stand 21.10.2026.
-   Im Widget überschreibt der Betrieb --pt-haupt, --pt-auf-haupt und bei Bedarf die Schriften. */
+/* Puntelo Design-Werte · «Bühne» · Ultramarin und Aprikose (ADR-0030, Stand 30.10.2026)
+   Eine Datei für Website, App, Cockpit und Widget. Werte aus dem Hand-off von Claude Design.
+   Im Widget überschreibt der Betrieb --pt-haupt, --pt-auf-haupt und bei Bedarf die Schriften.
+   Merksatz: Ultramarin ist Bühne und Rahmen, nicht Grund für lange Arbeit.
+   Aprikose ist der Punkt, nie Schrift auf Weiss oder Fläche. */
 
+/* Archivo, variabel (Breite 62–125 %, Gewicht 100–900), Latin, SIL OFL 1.1 (schrift/OFL.txt),
+   aus @fontsource-variable/archivo 5.2.8. */
 @font-face {
-  font-family: "Hanken Grotesk";
+  font-family: "Archivo";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
   font-display: swap;
-  src: url("./schrift/hanken-grotesk-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Hanken Grotesk";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("./schrift/hanken-grotesk-latin-500-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Hanken Grotesk";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("./schrift/hanken-grotesk-latin-600-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Hanken Grotesk";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("./schrift/hanken-grotesk-latin-700-normal.woff2") format("woff2");
+  src: url("./schrift/archivo-latin-standard-normal.woff2") format("woff2");
 }
 
 :root {
   /* Rollen für das Widget */
-  --pt-haupt: #2d3e9e; /* Ultramarin · Weiss darauf 9.2 : 1 */
+  --pt-haupt: #2d3e9e; /* Ultramarin · Weiss darauf 9.2 : 1, Links und Fokus auf Weiss */
   --pt-auf-haupt: #ffffff;
+  --pt-haupt-rand: #2d3e9e; /* Rand der gewählten Zeit und Fokus im Widget; Nacht bei hellen Betriebsfarben */
   --pt-grund: #ffffff;
-  --pt-flaeche: #f4f5fb; /* Nebel */
-  --pt-text: #141a44; /* Nachtblau · 16.7 : 1 auf Weiss, 15.3 : 1 auf Nebel */
-  --pt-nebentext: #545a7e; /* Dämmerblau · 6.7 : 1 auf Weiss, 6.1 : 1 auf Nebel */
-  --pt-rand: #dddfee;
+  --pt-flaeche: #eef0fa; /* Bänder, Karten, Stundenleiste */
+  --pt-text: #0e1233; /* Nacht · 18.2 : 1 auf Weiss, 16.0 : 1 auf Fläche */
+  --pt-nebentext: #4a5078; /* 7.7 : 1 auf Weiss, 6.8 : 1 auf Fläche */
+  --pt-rand: #dce0f2; /* Linien zur Gliederung, keine Bedienelemente */
   --pt-fehler: #b42318; /* 6.6 : 1 auf Weiss */
-  --pt-schrift-titel: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --pt-schrift-titel-gewicht: 600; /* ergänzt bei der Übernahme (Paket 0.10) */
-  --pt-schrift-text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --pt-rundung-klein: 10px; /* Knöpfe, Felder, Zeiten */
-  --pt-rundung-gross: 16px; /* Karten, Widget */
+  --pt-schrift-titel: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pt-schrift-titel-gewicht: 800;
+  --pt-schrift-text: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pt-rundung-klein: 6px; /* Knöpfe, Felder, Zeit-Pillen, Navigationspunkte */
+  --pt-rundung-gross: 12px; /* Karten, Blatt, Dialog, Widget */
 
-  /* Weitere Markenwerte (Website, Admin) */
-  --pt-akzent: #f2a057; /* Aprikose · nur Fläche, nie Schrift */
-  --pt-text-weich: #2c3260; /* Fliesstext auf Website · 12.1 : 1 */
-  --pt-rand-stark: #c9cce3; /* Rand von Sekundärknöpfen und Feldern */
-  --pt-erfolg: #1f7a4d; /* 5.3 : 1 */
-  --pt-hinweis: #8a5a00; /* 5.9 : 1 */
+  /* Weitere Farben */
+  --pt-flaeche-vorbei: #f7f8fc; /* vergangene Termine */
+  --pt-text-weich: #0e1233; /* nur noch Alias für --pt-text, später entfernen */
+  --pt-rand-stark: #6b7199; /* Rand von Feldern, Zeit-Pillen, Symbolknöpfen · 4.7 : 1 */
+  --pt-kante: #0e1233; /* 2-px-Kante von Karten, Dialogen, zweitrangigen Knöpfen */
+  --pt-haupt-darueber: #25358c;
+  --pt-haupt-gedrueckt: #1b2675;
+  --pt-haupt-zart: #dce0f7; /* Abzeichen «bestätigt» */
+  --pt-buehne: #1b2675; /* grosse Flächen: Hero, Navigation, Köpfe, Akzentkarten */
+  --pt-buehne-tief: #141c5c; /* Fuss, Betriebskarte, Knöpfe auf Bühne */
+  --pt-auf-buehne: #ffffff; /* 13.3 : 1 */
+  --pt-auf-buehne-neben: #c3c9f0; /* 8.2 : 1 auf Bühne */
+  --pt-akzent: #f2a057; /* Aprikose · 6.3 : 1 auf Bühne, als Schrift nur auf Bühne */
+  --pt-akzent-darueber: #f8bd87;
+  --pt-auf-akzent: #0e1233; /* 8.6 : 1 */
+  --pt-erfolg: #1f7a4d; /* «erschienen», «aktiv» · 5.3 : 1 */
+  --pt-erfolg-zart: #e6f2ec;
+  --pt-erfolg-hell: #7fe0ae; /* Erfolg als Schrift auf Bühne */
+  --pt-hinweis: #8a5a00; /* «Testphase» · 5.9 : 1 */
+  --pt-hinweis-zart: #fbf1de;
+  --pt-fehler-darueber: #9a1e14;
+  --pt-fehler-gedrueckt: #7f1810;
+  --pt-fehler-zart: #fbe9e7;
+  --pt-fehler-hell: #ffa8a0; /* Fehler als Schrift auf Bühne */
+  --pt-deaktiviert: #e4e6ef;
+  --pt-deaktiviert-text: #6e7393; /* WCAG-Ausnahme für deaktivierte Elemente */
+  --pt-abdunkelung: rgba(14, 18, 51, 0.55); /* hinter dem Blatt von unten */
 
   /* Farben der Personen im Kalender (Rückmeldung Davide, 23.10.2026): nur Streifen und zarte
-     Fläche, nie Schrift; kein Grün und kein Rot, die gehören zu «erschienen» und «nicht erschienen». */
+     Fläche, nie Schrift; kein Grün und kein Rot, die gehören zu «erschienen» und «nicht erschienen».
+     Text auf der zarten Fläche ist immer --pt-text. */
   --pt-person-aprikose: #f2a057;
   --pt-person-mais: #e3c04b;
   --pt-person-rosa: #e48bb0;
@@ -64,4 +71,91 @@
   --pt-person-himmel: #5aa3d9;
   --pt-person-petrol: #2a8696;
   --pt-person-schiefer: #7c849e;
+  --pt-person-aprikose-zart: #fce7d3;
+  --pt-person-mais-zart: #faf3d9;
+  --pt-person-rosa-zart: #fbe6ef;
+  --pt-person-flieder-zart: #ede7f8;
+  --pt-person-ultramarin-zart: #e8ebf7;
+  --pt-person-himmel-zart: #deedf8;
+  --pt-person-petrol-zart: #ddeff1;
+  --pt-person-schiefer-zart: #ecedf2;
+
+  /* Schrift: Titel breit und schwer, Text normal breit (400 bis 700), Zahlen tabular */
+  --pt-schrift-titel-breite: 112%;
+  --pt-schrift-titel-laufweite: -0.015em;
+
+  /* Typo-Stufen (Grösse, Zeile; Handy darunter) */
+  --pt-typo-titel-1: 72px;
+  --pt-typo-titel-1-zeile: 72px;
+  --pt-typo-titel-1-handy: 44px;
+  --pt-typo-titel-1-handy-zeile: 46px;
+  --pt-typo-titel-2: 44px;
+  --pt-typo-titel-2-zeile: 48px;
+  --pt-typo-titel-2-handy: 32px;
+  --pt-typo-titel-2-handy-zeile: 36px;
+  --pt-typo-titel-3: 30px;
+  --pt-typo-titel-3-zeile: 36px;
+  --pt-typo-titel-3-handy: 26px;
+  --pt-typo-titel-3-handy-zeile: 32px;
+  --pt-typo-titel-4: 21px;
+  --pt-typo-titel-4-zeile: 28px;
+  --pt-typo-titel-4-handy: 19px;
+  --pt-typo-titel-4-handy-zeile: 26px;
+  --pt-typo-text-gross: 19px;
+  --pt-typo-text-gross-zeile: 29px;
+  --pt-typo-text-gross-handy: 18px;
+  --pt-typo-text-gross-handy-zeile: 27px;
+  --pt-typo-text: 17px;
+  --pt-typo-text-zeile: 26px;
+  --pt-typo-text-handy: 16px;
+  --pt-typo-text-handy-zeile: 25px;
+  --pt-typo-klein: 15px;
+  --pt-typo-klein-zeile: 22px;
+  --pt-typo-kleintext: 13px; /* 700, Versalien */
+  --pt-typo-kleintext-zeile: 18px;
+  --pt-typo-kleintext-handy: 12px;
+  --pt-typo-kleintext-handy-zeile: 16px;
+  --pt-typo-kleintext-laufweite: 0.06em;
+  --pt-typo-zahl: 40px;
+  --pt-typo-zahl-zeile: 44px;
+  --pt-typo-zahl-handy: 30px;
+  --pt-typo-zahl-handy-zeile: 32px;
+
+  /* Abstände, Basis 4 px */
+  --pt-abstand-1: 4px;
+  --pt-abstand-2: 8px;
+  --pt-abstand-3: 12px;
+  --pt-abstand-4: 16px;
+  --pt-abstand-5: 20px;
+  --pt-abstand-6: 24px;
+  --pt-abstand-8: 32px;
+  --pt-abstand-10: 40px;
+  --pt-abstand-12: 48px;
+  --pt-abstand-16: 64px;
+  --pt-abstand-20: 80px;
+  --pt-abstand-26: 104px;
+  --pt-abstand-30: 120px;
+
+  /* Rundungen, Kanten, Schatten */
+  --pt-rundung-mini: 4px; /* Abzeichen, Kästchen */
+  --pt-rundung-voll: 9999px; /* nur Punkte */
+  --pt-kante-breite: 2px;
+  --pt-fokus-breite: 3px; /* Fokus: Haupt auf hell, Aprikose auf Bühne */
+  --pt-fokus-abstand: 2px;
+  --pt-schatten-blatt: 0 12px 32px rgba(14, 18, 51, 0.18); /* nur Blatt, Dialog, Toast */
+
+  /* Bewegung */
+  --pt-dauer-kurz: 140ms; /* Farbe, Rand, Knopfdruck */
+  --pt-dauer-blatt: 240ms; /* Blatt, Dialog */
+  --pt-kurve: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --pt-druck-versatz: 1px; /* Knopf gedrückt: 1 px tiefer */
+}
+
+/* Ohne Bewegung: alle Dauern auf 0, auch die 1-px-Verschiebung beim Drücken. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --pt-dauer-kurz: 0ms;
+    --pt-dauer-blatt: 0ms;
+    --pt-druck-versatz: 0px;
+  }
 }
